@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataHasil;
 use Illuminate\Http\Request;
+use App\DataTables\DataHasilDataTable;
 
 class DataHasilController extends Controller
 {
@@ -12,9 +13,9 @@ class DataHasilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DataHasilDataTable $dataTable)
     {
-        //
+        return $dataTable->render('dataHasil.index');
     }
 
     /**

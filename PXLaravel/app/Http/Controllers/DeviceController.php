@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use Illuminate\Http\Request;
+use App\DataTables\DeviceDataTable;
 
 class DeviceController extends Controller
 {
@@ -12,9 +13,9 @@ class DeviceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DeviceDataTable $dataTable)
     {
-        //
+        return $dataTable->render('device.index');
     }
 
     /**

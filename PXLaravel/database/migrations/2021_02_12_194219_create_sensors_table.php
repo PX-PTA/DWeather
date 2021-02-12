@@ -15,7 +15,13 @@ class CreateSensorsTable extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('desc');
+            $table->boolean('is_active');
+            $table->boolean('is_online');
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->foreignId('device_id')->constrained('devices');
         });
     }
 

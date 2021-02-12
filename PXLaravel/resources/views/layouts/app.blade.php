@@ -141,7 +141,7 @@
                                  with font-awesome or any other icon font library -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
                                     Dashboard
                                     <span class="right badge badge-danger">New</span>
@@ -150,7 +150,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('dataHasil.index') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
                                     Dashboard Data
                                     <span class="right badge badge-danger">New</span>
@@ -176,28 +176,28 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active">
+                                        <a href="{{ route('device.index') }}" class="nav-link">
                                             <i class="fas fa-network-wired nav-icon"></i>
                                             <p>Alat Deteksi</p>
                                             <span class="right badge badge-danger">New</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active">
+                                        <a href="{{ route('sensor.suhu') }}" class="nav-link">
                                             <i class="fas fa-cloud-sun nav-icon"></i>
                                             <p>Sensor Suhu</p>
                                             <span class="right badge badge-danger">New</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ route('sensor.angin') }}" class="nav-link">
                                             <i class="fas fa-wind nav-icon"></i>
                                             <p>Sensor Angin</p>
                                             <span class="right badge badge-danger">New</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ route('sensor.kelembapan') }}" class="nav-link">
                                             <i class="far fa-sun nav-icon"></i>
                                             <p>Sensor Kelembapan</p>
                                             <span class="right badge badge-danger">New</span>
@@ -215,21 +215,21 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active">
+                                        <a href="{{ route('datum.kelembapan') }}" class="nav-link">
                                             <i class="fas fa-cloud-sun nav-icon"></i>
                                             <p>Kelembapan</p>
                                             <span class="right badge badge-danger">New</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ route('datum.angin') }}" class="nav-link">
                                             <i class="fas fa-wind nav-icon"></i>
                                             <p>Angin</p>
                                             <span class="right badge badge-danger">New</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ route('datum.suhu') }}" class="nav-link">
                                             <i class="far fa-sun nav-icon"></i>
                                             <p>Suhu</p>
                                             <span class="right badge badge-danger">New</span>
@@ -318,6 +318,8 @@
 
         @stack('modals')
         @livewireScripts
+        <script src="{{ mix('js/app.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
         @stack('scripts')
     </body>
 </html>

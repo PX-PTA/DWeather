@@ -15,7 +15,12 @@ class CreateDevicesTable extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('desc');
+            $table->boolean('is_active');
+            $table->boolean('is_online');
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 

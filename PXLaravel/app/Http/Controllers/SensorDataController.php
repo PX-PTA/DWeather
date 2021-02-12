@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SensorData;
 use Illuminate\Http\Request;
+use App\DataTables\SensorDataDataTable;
 
 class SensorDataController extends Controller
 {
@@ -12,9 +13,9 @@ class SensorDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SensorDataDataTable $dataTable)
     {
-        //
+        return $dataTable->render('data.suhu');
     }
 
     /**
