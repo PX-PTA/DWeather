@@ -131,23 +131,143 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                            <div class="image">
-                                <img src="{{ Auth::user()->profile_photo_url }}" class="img-circle elevation-1" alt="{{ Auth::user()->name }}">
-                            </div>
-                        @endif
-                        <div class="info">
-                            <a href="{{ route('profile.show') }}" class="d-block">{{ Auth::user()->name }}</a>
-                        </div>
-                    </div>
+                    <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    </div> -->
 
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
                             <!-- Add icons to the links using the .nav-icon class
                                  with font-awesome or any other icon font library -->
-
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                    Dashboard
+                                    <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('dataHasil.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                    Dashboard Data
+                                    <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                    Setting Admin
+                                    <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                    Alat
+                                    <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            <i class="fas fa-network-wired nav-icon"></i>
+                                            <p>Alat Deteksi</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            <i class="fas fa-cloud-sun nav-icon"></i>
+                                            <p>Sensor Suhu</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fas fa-wind nav-icon"></i>
+                                            <p>Sensor Angin</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-sun nav-icon"></i>
+                                            <p>Sensor Kelembapan</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                    Data
+                                    <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active">
+                                            <i class="fas fa-cloud-sun nav-icon"></i>
+                                            <p>Kelembapan</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fas fa-wind nav-icon"></i>
+                                            <p>Angin</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-sun nav-icon"></i>
+                                            <p>Suhu</p>
+                                            <span class="right badge badge-danger">New</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                    <img src="{{ Auth::user()->profile_photo_url }}" class="img-circle elevation-1" alt="{{ Auth::user()->name }}">
+                                    <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>
+                            @endif
+                            <li class="nav-item">
+                                <a href="{{ route('profile.show') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                    Profile - {{ Auth::user()->name }}
+                                    <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('logout') }}"
+                                                     onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();" class="nav-link">
+                                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                                    <p>
+                                    Logout
+                                    <span class="right badge badge-danger">New</span>
+                                    </p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
