@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             'desc' => "Wemos D1 Pro",
             'is_active' => true,
             'is_online' => true,
+            'last_online' => Carbon::now(),
         ]);
         DB::table('sensors')->insert([
             'name' => "Anemometer",
