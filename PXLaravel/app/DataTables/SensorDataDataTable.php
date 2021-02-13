@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\SensorDatum;
+use App\Models\SensorData;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -20,8 +20,7 @@ class SensorDataDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
-            ->addColumn('action', 'sensordata.action');
+            ->eloquent($query);
     }
 
     /**
@@ -30,7 +29,7 @@ class SensorDataDataTable extends DataTable
      * @param \App\Models\SensorDatum $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(SensorDatum $model)
+    public function query(SensorData $model)
     {
         return $model->newQuery();
     }
@@ -46,15 +45,8 @@ class SensorDataDataTable extends DataTable
                     ->setTableId('sensordata-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+                    ->dom('frtip')
+                    ->orderBy(1);
     }
 
     /**
@@ -65,15 +57,15 @@ class SensorDataDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('data'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            // Column::computed('action')
+            //       ->exportable(false)
+            //       ->printable(false)
+            //       ->width(60)
+            //       ->addClass('text-center'),
         ];
     }
 

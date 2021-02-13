@@ -15,15 +15,15 @@ class SensorController extends Controller
      */
     public function suhu(SensorDataTable $dataTable)
     {
-        return $dataTable->render('dataHasil.index');
+        return $dataTable->render('device.suhu');
     }
     public function kelembapan(SensorDataTable $dataTable)
     {
-        return $dataTable->render('dataHasil.index');
+        return $dataTable->render('device.kelembapan');
     }
     public function angin(SensorDataTable $dataTable)
     {
-        return $dataTable->render('dataHasil.index');
+        return $dataTable->render('device.angin');
     }
 
     /**

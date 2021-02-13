@@ -15,7 +15,11 @@ class CreateSensorDataTable extends Migration
     {
         Schema::create('sensor_data', function (Blueprint $table) {
             $table->id();
+            $table->string('data');
+            $table->timestamp('waktu');
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->foreignId('sensor_id')->constrained('sensors');
         });
     }
 
