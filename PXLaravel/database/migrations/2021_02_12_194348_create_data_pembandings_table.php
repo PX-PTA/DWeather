@@ -16,13 +16,16 @@ class CreateDataPembandingsTable extends Migration
         Schema::create('data_pembandings', function (Blueprint $table) {
             $table->id();
             $table->timestamp('waktu');
-            $table->string('curah_hujan')->nullable();
-            $table->string('suhu_udara')->nullable();
-            $table->string('kelembapan_udara')->nullable();
-            $table->string('tekanan_udara')->nullable();
-            $table->string('kecepatan_angin')->nullable();
+            $table->string('xt');
+            $table->string('ft');
+            $table->string('selisih');
+            $table->string('mae');
+            $table->string('mse');
+            $table->string('mape');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->foreignId('konstanta_id')->constrained('konstantas');
+            $table->foreignId('sensor_id')->constrained('sensors');
         });
     }
 

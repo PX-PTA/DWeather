@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class DataPembanding extends Model
 {
     use HasFactory;
+    protected $fillable = ['waktu','xt','ft','selisih','mae','mse','mape','konstanta_id','sensor_id'];
 }

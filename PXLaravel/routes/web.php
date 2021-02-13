@@ -6,6 +6,7 @@ use App\Http\Controllers\SensorDataController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\KonstantaController;
+use App\Http\Controllers\DataPembandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/', function () {
     return redirect("login");
 });
 
+Route::get('/dataXl', [DataPembandingController::class, 'import'])->name('dataXl.import');
 
 Route::prefix('data')->group(function () {
     Route::get('/hasil', [DataHasilController::class, 'index'])->name('dataHasil.index');
@@ -40,6 +42,8 @@ Route::prefix('devices')->group(function () {
     Route::get('/angin', [SensorController::class, 'angin'])->name('sensor.angin');
     Route::get('/kelembapan', [SensorController::class, 'kelembapan'])->name('sensor.kelembapan');
 });
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

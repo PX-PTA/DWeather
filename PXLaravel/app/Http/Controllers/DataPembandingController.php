@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DataPembanding;
 use Illuminate\Http\Request;
+use App\Imports\DataPembandingImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DataPembandingController extends Controller
 {
@@ -25,7 +27,15 @@ class DataPembandingController extends Controller
     public function create()
     {
         //
+    } 
+    
+    public function import() 
+    {
+        Excel::import(new DataPembandingImport, 'dataSensor.xlsx');
+        
+        return redirect('/')->with('success', 'All good!');
     }
+
 
     /**
      * Store a newly created resource in storage.
