@@ -28,5 +28,5 @@ Route::get('/ping/{Device}', function (Device $Device) {
     $Device->last_online =  Carbon::now();
     $Device->save();
     
-    return response(["device" => $Device, "Server" => true ])->header('Content-Type', 'text/html');
+    return response(["server" => true ])->header('Content-Type', 'text/html');
 });
