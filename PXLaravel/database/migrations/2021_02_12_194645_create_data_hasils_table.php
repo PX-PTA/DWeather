@@ -15,7 +15,14 @@ class CreateDataHasilsTable extends Migration
     {
         Schema::create('data_hasils', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('waktu');
+            $table->string('curah_hujan')->nullable();
+            $table->string('suhu_udara')->nullable();
+            $table->string('kelembapan_udara')->nullable();
+            $table->string('tekanan_udara')->nullable();
+            $table->string('kecepatan_angin')->nullable();
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 

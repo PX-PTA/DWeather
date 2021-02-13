@@ -17,6 +17,7 @@ class CreateSensorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('desc');
+            $table->string('type');
             $table->boolean('is_active');
             $table->boolean('is_online');
             $table->timestamps();

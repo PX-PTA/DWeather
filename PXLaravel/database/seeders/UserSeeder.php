@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
         DB::table('sensors')->insert([
             'name' => "Anemometer",
             'desc' => "Sensor Angin",
+            'type' => "angin",
             'is_active' => true,
             'is_online' => true,
             'device_id' => 1,
@@ -37,6 +39,7 @@ class UserSeeder extends Seeder
         DB::table('sensors')->insert([
             'name' => "BME180",
             'desc' => "Sensor Suhu, Humidity",
+            'type' => "kelembapan",
             'is_active' => true,
             'is_online' => true,
             'device_id' => 1,
@@ -44,9 +47,25 @@ class UserSeeder extends Seeder
         DB::table('sensors')->insert([
             'name' => "DSB28T18",
             'desc' => "Sensor Suhu",
+            'type' => "suhu",
             'is_active' => true,
             'is_online' => true,
             'device_id' => 1,
+        ]);
+        DB::table('konstantas')->insert([
+            'value' => "0.1",
+            'waktu' =>  Carbon::now(),
+            'is_active' => true,
+        ]);
+        DB::table('konstantas')->insert([
+            'value' => "0.2",
+            'waktu' =>  Carbon::now(),
+            'is_active' => true,
+        ]);
+        DB::table('konstantas')->insert([
+            'value' => "0.3",
+            'waktu' =>  Carbon::now(),
+            'is_active' => true,
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Konstanta;
 use Illuminate\Http\Request;
+use App\DataTables\KonstantaDataTable;
 
 class KonstantaController extends Controller
 {
@@ -12,9 +13,9 @@ class KonstantaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(KonstantaDataTable $dataTable)
     {
-        //
+        return $dataTable->render('konstanta.index');
     }
 
     /**

@@ -15,7 +15,11 @@ class CreateKonstantasTable extends Migration
     {
         Schema::create('konstantas', function (Blueprint $table) {
             $table->id();
+            $table->string('value');
+            $table->timestamp('waktu');
+            $table->boolean('is_active');
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 

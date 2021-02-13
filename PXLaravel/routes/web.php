@@ -5,6 +5,7 @@ use App\Http\Controllers\DataHasilController;
 use App\Http\Controllers\SensorDataController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\SensorController;
+use App\Http\Controllers\KonstantaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,13 @@ Route::get('/', function () {
 
 Route::prefix('data')->group(function () {
     Route::get('/hasil', [DataHasilController::class, 'index'])->name('dataHasil.index');
-    Route::get('/suhu', [SensorDataController::class, 'index'])->name('datum.suhu');
-    Route::get('/angin', [SensorDataController::class, 'index'])->name('datum.angin');
-    Route::get('/kelembapan', [SensorDataController::class, 'index'])->name('datum.kelembapan');
+    Route::get('/suhu', [SensorDataController::class, 'suhu'])->name('datum.suhu');
+    Route::get('/angin', [SensorDataController::class, 'angin'])->name('datum.angin');
+    Route::get('/kelembapan', [SensorDataController::class, 'kelembapan'])->name('datum.kelembapan');
+});
+
+Route::prefix('konstanta')->group(function () {
+    Route::get('/', [KonstantaController::class, 'index'])->name('konstanta.index');
 });
 
 Route::prefix('devices')->group(function () {

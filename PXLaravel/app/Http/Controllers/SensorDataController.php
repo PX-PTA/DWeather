@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\SensorData;
 use Illuminate\Http\Request;
 use App\DataTables\SensorDataDataTable;
+use App\DataTables\SensorDataAnginDataTable;
+use App\DataTables\SensorDataKelembapanDataTable;
+use App\DataTables\SensorDataSuhuDataTable;
 
 class SensorDataController extends Controller
 {
@@ -18,6 +21,20 @@ class SensorDataController extends Controller
         return $dataTable->render('data.suhu');
     }
 
+    public function suhu(SensorDataSuhuDataTable $dataTable)
+    {
+        return $dataTable->render('device.suhu');
+    }
+
+    public function kelembapan(SensorDataKelembapanDataTable $dataTable)
+    {
+        return $dataTable->render('device.kelembapan');
+    }
+
+    public function angin(SensorDataAnginDataTable $dataTable)
+    {
+        return $dataTable->render('device.angin');
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Sensor;
 use Illuminate\Http\Request;
 use App\DataTables\SensorDataTable;
+use App\DataTables\DeviceAnginDataTable;
+use App\DataTables\DeviceKelembapanDataTable;
+use App\DataTables\DeviceSuhuDataTable;
 
 class SensorController extends Controller
 {
@@ -13,15 +16,17 @@ class SensorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function suhu(SensorDataTable $dataTable)
+    public function suhu(DeviceSuhuDataTable $dataTable)
     {
         return $dataTable->render('device.suhu');
     }
-    public function kelembapan(SensorDataTable $dataTable)
+
+    public function kelembapan(DeviceKelembapanDataTable $dataTable)
     {
         return $dataTable->render('device.kelembapan');
     }
-    public function angin(SensorDataTable $dataTable)
+
+    public function angin(DeviceAnginDataTable $dataTable)
     {
         return $dataTable->render('device.angin');
     }
