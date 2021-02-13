@@ -62,6 +62,7 @@ class DeviceDataTable extends DataTable
             Column::make('name'),
             Column::make('is_online'),
             Column::make('is_active'),
+            Column::make('last_online'),
             // Column::computed('action')
             //       ->exportable(false)
             //       ->printable(false)

@@ -7,6 +7,8 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\KonstantaController;
 use App\Http\Controllers\DataPembandingController;
+use App\Models\Device;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +50,4 @@ Route::prefix('devices')->group(function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
