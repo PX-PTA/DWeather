@@ -25,10 +25,10 @@
                                 </div>
                                 <div class="pl-3">
                                     <div class="mb-2">
-                                        <a href="https://laravel.com/docs" class="h5 font-weight-bolder text-decoration-none text-dark">Documentation</a>
+                                        <a href="https://laravel.com/docs" class="h5 font-weight-bolder text-decoration-none text-dark">Dokumentasi</a>
                                     </div>
                                     <p class="text-muted">
-                                        Laravel has wonderful documentation covering every aspect of the framework. Whether you're new to the framework or have previous experience, we recommend reading all of the documentation from beginning to end.
+                                        Test
                                     </p>
                                     <a href="https://laravel.com/docs" class="text-decoration-none">
                                         <div class="mt-3 d-flex align-content-center font-weight-bold text-primary">
