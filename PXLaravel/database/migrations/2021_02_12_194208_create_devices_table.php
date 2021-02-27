@@ -19,7 +19,7 @@ class CreateDevicesTable extends Migration
             $table->string('desc');
             $table->boolean('is_active');
             $table->boolean('is_online');
-            $table->timestamp("last_online");
+            $table->timestamp('last_online');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });

@@ -53,20 +53,5 @@ class UserSeeder extends Seeder
             'is_online' => true,
             'device_id' => 1,
         ]);
-        DB::table('konstantas')->insert([
-            'value' => "0.1",
-            'waktu' =>  Carbon::now(),
-            'is_active' => true,
-        ]);
-        DB::table('konstantas')->insert([
-            'value' => "0.2",
-            'waktu' =>  Carbon::now(),
-            'is_active' => true,
-        ]);
-        DB::table('konstantas')->insert([
-            'value' => "0.3",
-            'waktu' =>  Carbon::now(),
-            'is_active' => true,
-        ]);
     }
 }
