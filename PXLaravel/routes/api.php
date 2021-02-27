@@ -31,8 +31,11 @@ Route::get('/ping/{Device}', function (Device $Device) {
 
     $Device->last_online =  $now;
     $Device->save();
-    
-    return response(true."".$now->month)->header('Content-Type', 'text/html');
+    $suhuRata = SensorData::where('sensor_id',3)->avg('data');
+    $windRata = SensorData::where('sensor_id',1)->avg('data');
+    $humiRata = SensorData::where('sensor_id',2)->avg('data');
+
+    return response(true.";".$now->month.";".$suhuRata.";".$windRata.";".$humiRata)->header('Content-Type', 'text/html');
 });
 
 Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) {
@@ -117,6 +120,10 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
     $Device->last_online =  Carbon::now();
     $Device->save();
     
-    return response(true."".$now->month)->header('Content-Type', 'text/html');
+    $suhuRata = SensorData::where('sensor_id',3)->avg('data');
+    $windRata = SensorData::where('sensor_id',1)->avg('data');
+    $humiRata = SensorData::where('sensor_id',2)->avg('data');
+    
+    return response(true.";".$now->month.";".$suhuRata.";".$windRata.";".$humiRata)->header('Content-Type', 'text/html');
 });
 
