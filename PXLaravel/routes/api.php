@@ -45,20 +45,44 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
        $newDataSensor->waktu = $now;
        $newDataSensor->sensor_id = 2;
        $newDataSensor->save();  
-       if($newDataSensor->save()){
-        $client = new \GuzzleHttp\Client();
-        $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V2',[
-            'headers' => [
-                "Content-Type" => "application/json"
-            ],
-            'body' => '['.$request->humidity.']'
-        ]);
-       }       
     }
 
     if($request->windCurrent){
         $newDataSensor = new SensorData;
         $newDataSensor->data = $request->windCurrent;
+        $newDataSensor->waktu = $now;
+        $newDataSensor->sensor_id = 1;
+        $newDataSensor->save(); 
+    }
+
+    if($request->temperaturDsb){
+        $newDataSensor = new SensorData;
+        $newDataSensor->data = $request->temperaturDsb;
+        $newDataSensor->waktu = $now;
+        $newDataSensor->sensor_id = 3;
+        $newDataSensor->save(); 
+    }
+
+    if($request->HasilExpSuhu){
+        $newDataSensor = new DataHasil;
+        $newDataSensor->data = $request->HasilExpSuhu;
+        $newDataSensor->waktu = $now;
+        $newDataSensor->sensor_id = 3;
+        $newDataSensor->save();     
+        if($newDataSensor->save()){
+         $client = new \GuzzleHttp\Client();
+         $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V0',[
+             'headers' => [
+                 "Content-Type" => "application/json"
+             ],
+             'body' => '['.$request->HasilExpSuhu.']'
+         ]);
+        }             
+    }
+
+    if($request->HasilExpWind){
+        $newDataSensor = new DataHasil;
+        $newDataSensor->data = $request->HasilExpWind;
         $newDataSensor->waktu = $now;
         $newDataSensor->sensor_id = 1;
         $newDataSensor->save(); 
@@ -68,42 +92,9 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
              'headers' => [
                  "Content-Type" => "application/json"
              ],
-             'body' => '['.$request->windCurrent.']'
+             'body' => '['.$request->HasilExpWind.']'
          ]);
-        } 
-    }
-
-    if($request->temperaturDsb){
-        $newDataSensor = new SensorData;
-        $newDataSensor->data = $request->temperaturDsb;
-        $newDataSensor->waktu = $now;
-        $newDataSensor->sensor_id = 3;
-        $newDataSensor->save(); 
-        if($newDataSensor->save()){
-         $client = new \GuzzleHttp\Client();
-         $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V0',[
-             'headers' => [
-                 "Content-Type" => "application/json"
-             ],
-             'body' => '['.$request->temperaturDsb.']'
-         ]);
-        }      
-    }
-
-    if($request->HasilExpSuhu){
-        $newDataSensor = new DataHasil;
-        $newDataSensor->data = $request->HasilExpSuhu;
-        $newDataSensor->waktu = $now;
-        $newDataSensor->sensor_id = 3;
-        $newDataSensor->save();         
-    }
-
-    if($request->HasilExpWind){
-        $newDataSensor = new DataHasil;
-        $newDataSensor->data = $request->HasilExpWind;
-        $newDataSensor->waktu = $now;
-        $newDataSensor->sensor_id = 1;
-        $newDataSensor->save();         
+        }         
     }
 
     if($request->HasilExpHum){
@@ -111,7 +102,16 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
         $newDataSensor->data = $request->HasilExpHum;
         $newDataSensor->waktu = $now;
         $newDataSensor->sensor_id = 2;
-        $newDataSensor->save();         
+        $newDataSensor->save();   
+        if($newDataSensor->save()){
+         $client = new \GuzzleHttp\Client();
+         $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V2',[
+             'headers' => [
+                 "Content-Type" => "application/json"
+             ],
+             'body' => '['.$request->HasilExpHum.']'
+         ]);
+        }          
     }
 
     $Device->last_online =  Carbon::now();
