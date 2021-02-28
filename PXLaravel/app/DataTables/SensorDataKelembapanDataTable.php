@@ -60,8 +60,7 @@ class SensorDataKelembapanDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('data'),
-            Column::make('created_at'),
-            Column::make('updated_at')
+            Column::make('waktu')
         ];
     }
 
