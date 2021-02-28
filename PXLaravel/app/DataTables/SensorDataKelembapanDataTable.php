@@ -47,7 +47,7 @@ class SensorDataKelembapanDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('frtip')
-                    ->orderBy(3,'desc');
+                    ->orderBy(2,'desc');
     }
 
     /**
