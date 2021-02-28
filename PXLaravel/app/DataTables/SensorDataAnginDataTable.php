@@ -47,7 +47,7 @@ class SensorDataAnginDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('frtip')
-                    ->orderBy(1);
+                    ->orderBy(3,'desc');
     }
 
     /**
