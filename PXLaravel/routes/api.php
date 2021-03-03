@@ -31,11 +31,20 @@ Route::get('/ping/{Device}', function (Device $Device) {
 
     $Device->last_online =  $now;
     $Device->save();
-    $suhuRata = SensorData::where('sensor_id',3)->avg('data');
-    $windRata = SensorData::where('sensor_id',1)->avg('data');
-    $humiRata = SensorData::where('sensor_id',2)->avg('data');
 
-    return response(true.";".$now->month.";".$suhuRata.";".$windRata.";".$humiRata)->header('Content-Type', 'text/html');
+    $totalDataHasil = DataHasil::count();
+
+    if($totalDataHasil > 3){
+        $FtSuhu = DataHasil::where('sensor_id',3)->orderBy('created_at', 'desc')->first()->data;
+        $FtWind = DataHasil::where('sensor_id',1)->orderBy('created_at', 'desc')->first()->data;
+        $FtHumi = DataHasil::where('sensor_id',2)->orderBy('created_at', 'desc')->first()->data;
+    }else{
+        $FtSuhu = 0;
+        $FtWind = 0;
+        $FtHumi = 0;
+    }
+
+    return response(true.";".$now->month.";".$FtSuhu.";".$FtWind.";".$FtHumi)->header('Content-Type', 'text/html');
 });
 
 Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) {
@@ -119,11 +128,12 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
 
     $Device->last_online =  Carbon::now();
     $Device->save();
+
+    $FtSuhu = DataHasil::where('sensor_id',3)->orderBy('created_at', 'desc')->first()->data;
+    $FtWind = DataHasil::where('sensor_id',1)->orderBy('created_at', 'desc')->first()->data;
+    $FtHumi = DataHasil::where('sensor_id',2)->orderBy('created_at', 'desc')->first()->data;
+
     
-    $suhuRata = SensorData::where('sensor_id',3)->avg('data');
-    $windRata = SensorData::where('sensor_id',1)->avg('data');
-    $humiRata = SensorData::where('sensor_id',2)->avg('data');
-    
-    return response(true.";".$now->month.";".$suhuRata.";".$windRata.";".$humiRata)->header('Content-Type', 'text/html');
+    return response(true.";".$now->month.";".$FtSuhu.";".$FtWind.";".$FtHumi)->header('Content-Type', 'text/html');
 });
 
