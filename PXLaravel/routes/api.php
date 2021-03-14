@@ -83,7 +83,7 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
         $newDataSensor->save();     
         if($newDataSensor->save()){
          $client = new \GuzzleHttp\Client();
-         $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V0',[
+         $response = $client->put('http://blynk-cloud.com/U4z0hqzAUS7-BJ3bFFvT9or9nyQgMor5/update/V0',[
              'headers' => [
                  "Content-Type" => "application/json"
              ],
@@ -100,7 +100,7 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
         $newDataSensor->save(); 
         if($newDataSensor->save()){
          $client = new \GuzzleHttp\Client();
-         $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V1',[
+         $response = $client->put('http://blynk-cloud.com/U4z0hqzAUS7-BJ3bFFvT9or9nyQgMor5/update/V1',[
              'headers' => [
                  "Content-Type" => "application/json"
              ],
@@ -117,7 +117,7 @@ Route::post('/data/sensor/{Device}', function (Device $Device,Request $request) 
         $newDataSensor->save();   
         if($newDataSensor->save()){
          $client = new \GuzzleHttp\Client();
-         $response = $client->put('http://blynk-cloud.com/q2c12u_BGU3WppFEPy8iBozWUNCy8_p0/update/V2',[
+         $response = $client->put('http://blynk-cloud.com/U4z0hqzAUS7-BJ3bFFvT9or9nyQgMor5/update/V2',[
              'headers' => [
                  "Content-Type" => "application/json"
              ],
